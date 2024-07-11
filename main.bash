@@ -32,6 +32,8 @@ pacman -S --noconfirm \
   pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-docs \
   acpi acpid
 
+#firewall: netftables firewalld or ufw
+
 # Install microcode
 # amd-ucode for AMD processors
 # intel-ucode for Intel processors
