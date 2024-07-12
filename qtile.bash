@@ -19,7 +19,7 @@ sudo pacman -S \
   ly \
   qtile python-psutil python-pywlroots \
   ttf-ubuntu-nerd ttf-ubuntu-mono-nerd ttf-jetbrains-mono-nerd \
-  fzf github-cli bat diff-so-fancy starship pass rofi xdg-user-dirs xclip keychain \
+  fzf github-cli bat diff-so-fancy starship pass rofi xdg-user-dirs xclip keychain flameshot \
   snap-pac
 
 echo "Set ssh keys"
