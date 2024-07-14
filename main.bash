@@ -29,10 +29,12 @@ pacman -S --noconfirm \
   man-db man-pages texinfo tldr \
   bluez bluez-utils \
   cups \
-  pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-docs \
-  acpi acpid
+  pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-docs wireplumber pipewire-audio alsa-firmware sof-firmware \
+  acpi acpid \
+  tmux keychain udisks2 udiskie dunst
 
 #firewall: netftables firewalld or ufw
+pacman -S --noconfirm firewalld
 
 # Install microcode
 # amd-ucode for AMD processors
@@ -60,6 +62,7 @@ systemctl enable cups
 systemctl enable acpid
 systemctl enable reflector.timer
 systemctl enable acpid
+systemctl enable pipewire-pulse.service
 
 # Create a new user
 echo "Create a new user"
