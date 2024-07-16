@@ -83,6 +83,7 @@ systemctl enable reflector.timer
 systemctl enable acpid
 systemctl enable pipewire-pulse.service
 systemctl enable firewalld
+systemctl enable sshd
 
 # Create a new user
 echo "Create a new user"

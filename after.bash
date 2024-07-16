@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Set up git
+ssh-keygen -t ed25519 -C "tudorjnu@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+gh auth login
+
 # Settup dotbare
 git clone https://github.com/kazhala/dotbare.git ~/.config/dotbare
 source ~/.config/dotbare/dotbare.plugin.bash
