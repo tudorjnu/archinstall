@@ -24,12 +24,16 @@ echo "Installing additional packages"
 sudo pacman -S --noconfirm \
   firefox \
   picom \
-  ly \
   qtile python-psutil python-pywlroots \
   ttf-ubuntu-nerd ttf-ubuntu-mono-nerd ttf-jetbrains-mono-nerd \
   fzf bat diff-so-fancy starship pass rofi xdg-user-dirs xclip flameshot \
   snap-pac udiskie imagemagick inkscape mpd \
-  polkit-gnome polkit
+  polkit-gnome polkit \
+  alacritty
+
+# display manager
+sudo pacman -S --noconfirm ly
+sudo systemctl enable ly.service
 
 # Theming
 echo "Installing themes"
