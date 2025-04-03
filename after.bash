@@ -82,20 +82,14 @@ read -p "Do you want to install Miniconda using curl? [y/N]: " install_miniconda
 if [[ $install_miniconda =~ ^[Yy] ]]; then
     echo "Installing Miniconda..."
 
-    # Create the installation directory
-    mkdir -p ~/.miniconda3
-
-    # Use curl to download and pipe the installer to bash, passing necessary options
-    curl -L https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh | bash -s -- -b -u -p ~/.miniconda3
-
-    # Initialize conda for bash
-    ~/.miniconda3/bin/conda init bash
-
-    # Reload the bash configuration
-    source ~/.bashrc
-
-    # Set conda to not auto-activate the base environment
-    conda config --set auto_activate_base false
+  # installing miniconda
+  mkdir -p ~/.miniconda3
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/.miniconda3/miniconda.sh
+  bash ~/.miniconda3/miniconda.sh -b -u -p ~/.miniconda3
+  rm -rf ~/.miniconda3/miniconda.sh
+  ~/.miniconda3/bin/conda init bash
+  source .bashrc
+  conda config --set auto_activate_base false
 
     echo "Miniconda installation complete."
 else
