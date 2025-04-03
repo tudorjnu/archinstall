@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # VARIABLES
-KBD_LAYOUT="us"
+KBD_LAYOUT="uk"
 
 ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 hwclock --systohc
