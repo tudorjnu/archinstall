@@ -29,7 +29,8 @@ sudo pacman -S --noconfirm \
   fzf bat diff-so-fancy starship pass rofi xdg-user-dirs xclip flameshot \
   snap-pac udiskie imagemagick inkscape mpd \
   polkit-gnome polkit \
-  alacritty
+  alacritty \
+  wget
 
 # display manager
 sudo pacman -S --noconfirm ly
@@ -76,11 +77,10 @@ sudo systemctl enable --now cockpit.socket
 sudo pacman -S --noconfirm pass
 curl -sSL https://github.com/passff/passff-host/releases/latest/download/install_host_app.sh | bash -s -- firefox
 
-
 # miniconda
 read -p "Do you want to install Miniconda using curl? [y/N]: " install_miniconda
 if [[ $install_miniconda =~ ^[Yy] ]]; then
-    echo "Installing Miniconda..."
+  echo "Installing Miniconda..."
 
   # installing miniconda
   mkdir -p ~/.miniconda3
@@ -91,7 +91,13 @@ if [[ $install_miniconda =~ ^[Yy] ]]; then
   source .bashrc
   conda config --set auto_activate_base false
 
-    echo "Miniconda installation complete."
+  echo "Miniconda installation complete."
 else
-    echo "Skipping Miniconda installation."
+  echo "Skipping Miniconda installation."
 fi
+
+# autojump
+git clone https://github.com/wting/autojump.git
+cd autojump
+./install.py
+rm -rf autojump/
