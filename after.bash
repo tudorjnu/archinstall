@@ -30,7 +30,7 @@ sudo pacman -S --noconfirm \
   snap-pac udiskie imagemagick inkscape mpd \
   polkit-gnome polkit \
   alacritty \
-  wget
+  wget i3lock
 
 # display manager
 sudo pacman -S --noconfirm ly
@@ -101,3 +101,13 @@ git clone https://github.com/wting/autojump.git
 cd autojump
 ./install.py
 rm -rf autojump/
+
+# laptop battery
+# cpu frequency scalling
+sudo pacman -S cpupower thermald
+sudo systemctl enable --now cpupower.service
+sudo systemctl enable --now thermald.service
+
+# theming
+sudo pacman -S vimix-cursors orchis-theme papirus-folders papirus-icon-theme
+paru -S tela-icon-theme

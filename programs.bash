@@ -34,6 +34,10 @@ paru -S lxappearance materia-gtk-theme papirus-icon-theme papirus-folders zafiro
 
 # System Utilities
 sudo pacman -S acpid man-db man-pages bash-completion hwinfo keychain bluez bluez-utils blueman bluetuith tlp tlp-rdw tlpui cups brillo
+sudo systemctl enable --now acpid.service
+
+# Bluetooth
+sudo pacman -S blueman bluetuith bluez bluez-utils
 
 # Shell Enhancements
 paru -S starship bat ripgrep tldr alacritty lf rofi
@@ -45,7 +49,7 @@ sudo pacman -S 7zip unzip
 sudo pacman -S firewalld fail2ban pass
 
 # Multimedia
-sudo pacman -S mpv cheese flameshot youtube-music
+sudo pacman -S mpv cheese flameshot youtube-music qmk
 
 # Texlive (LaTeX Packages)
 sudo pacman -S texlive-basic texlive-bibtexextra texlive-binextra texlive-context texlive-fontsextra \
@@ -60,13 +64,21 @@ sudo pacman -S nvidia nvidia-utils nvidia-lts nvidia-settings
 sudo pacman -S ethtool redshift mons zathura zathura-pdf-poppler xclip xdotool wmctrl poweralertd tzupdate
 
 # Applications
-sudo pacman -S firefox thunderbird flatpak nextcloud-client
-
-# Virtualization
-sudo pacman -S qmk qtile dunst picom
+sudo pacman -S firefox thunderbird flatpak nextcloud-client allacrity
 
 # Documentation
-sudo pacman -S arch-wiki-docs arch-wiki-lite
+read -p "Install arch-wiki? [Y/n] " install_archwiki
+if [[ -z "$install_archwiki" || "${install_archwiki,,}" == "y" ]]; then
+  echo "Installing packages..."
+  sudo pacman -S arch-wiki-docs arch-wiki-lite
+else
+  echo "Installation canceled."
+fi
 
-# Optional Tools
-paru -S gpu-screen-recorder-gtk slimbookbattery alock noise-suppression-for-voice alacritty brillo polkit-gnome
+read -p "Install qtile? [Y/n] " install_qtile
+if [[ -z "$install_qtile" || "${install_qtile,,}" == "y" ]]; then
+  echo "Installing packages..."
+  sudo pacman -S qtile dunst picom polkit-gnome brillo
+else
+  echo "Installation canceled."
+fi
