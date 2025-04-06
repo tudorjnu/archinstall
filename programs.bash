@@ -7,7 +7,11 @@ sudo pacman -S base base-devel linux linux-firmware linux-headers linux-lts linu
 paru -S neovim git github-cli fzf rust paru paru-debug forgit tmux tree-sitter-cli python-dateutil python-psutil sassc
 
 # Networking
-sudo pacman -S networkmanager network-manager-applet openssh iwd cronie reflector fail2ban cockpit cockpit-packagekit cockpit-storaged
+sudo pacman -S networkmanager network-manager-applet openssh iwd cronie cockpit cockpit-packagekit cockpit-storaged
+sudo systemctl enable --now iwd.service
+
+# package management
+sudo systemctl enable --now reflector
 
 # File Systems & Disk Tools
 sudo pacman -S dosfstools mtools ntfs-3g smartmontools snapper snap-pac udiskie
@@ -30,14 +34,15 @@ sudo pacman -S thunar thunar-archive-plugin thunar-media-tags-plugin thunar-next
 sudo pacman -S nautilus nemo eog eog-docs eog-plugins gnome-themes-extra gnome-shell
 
 # Appearance
-paru -S lxappearance materia-gtk-theme papirus-icon-theme papirus-folders zafiro-icon-theme pop-gtk-theme
+paru -S lxappearance-gtk tela-icons-theme
 
 # System Utilities
-sudo pacman -S acpid man-db man-pages bash-completion hwinfo keychain bluez bluez-utils blueman bluetuith tlp tlp-rdw tlpui cups brillo
-sudo systemctl enable --now acpid.service
+sudo pacman -S man-db man-pages bash-completion hwinfo keychain cups brillo
 
 # Bluetooth
 sudo pacman -S blueman bluetuith bluez bluez-utils
+sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now blueman-mechanism.service
 
 # Shell Enhancements
 paru -S starship bat ripgrep tldr alacritty lf rofi
@@ -47,6 +52,8 @@ sudo pacman -S 7zip unzip
 
 # Security
 sudo pacman -S firewalld fail2ban pass
+sudo systemctl enable --now fail2ban.service
+sudo systemctl enable --now firewalld.service
 
 # Multimedia
 sudo pacman -S mpv cheese flameshot youtube-music qmk
@@ -82,3 +89,15 @@ if [[ -z "$install_qtile" || "${install_qtile,,}" == "y" ]]; then
 else
   echo "Installation canceled."
 fi
+
+# autorandr
+sudo pacman -S --noconfirm arandr
+sudo systemctl enable --now autorandr
+
+# time
+sudo pacman -S --noconfirm chrony
+sudo systemctl enable --now cronie.service
+sudo systemctl enable --now chronyd.service
+
+# ln -s $HOME/.gtkrc-2.0 /etc/gtk-2.0/gtkrc
+# ln -s $HOME/.config/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini

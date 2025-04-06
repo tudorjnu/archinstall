@@ -65,10 +65,7 @@ sudo cp ./tmux@.service /etc/systemd/system/
 # BTRFS Grub Snapshots
 sudo systemctl enable --now grub-btrfsd
 
-# XDG User Dirs Setup
-sudo systemctl enable --now xdg-user-dirs-update.service
 
-# Cockpit Setup
 echo "Setting up Cockpit"
 sudo pacman -S --noconfirm cockpit cockpit-files cockpit-machines cockpit-packagekit cockpit-storaged cockpit-pcp
 sudo systemctl enable --now cockpit.socket
