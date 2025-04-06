@@ -9,6 +9,7 @@ paru -S neovim git github-cli fzf rust paru paru-debug forgit tmux tree-sitter-c
 # Networking
 sudo pacman -S networkmanager network-manager-applet openssh iwd cronie cockpit cockpit-packagekit cockpit-storaged
 sudo systemctl enable --now iwd.service
+sudo systemctl enable --now systemd-networkd.service
 
 # package management
 sudo systemctl enable --now reflector
@@ -101,3 +102,6 @@ sudo systemctl enable --now chronyd.service
 
 # ln -s $HOME/.gtkrc-2.0 /etc/gtk-2.0/gtkrc
 # ln -s $HOME/.config/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini
+
+# file management
+sudo pacman -S gvfs thunar thunar-volman thunar-volman tumbler ffmpegthumbnailer
