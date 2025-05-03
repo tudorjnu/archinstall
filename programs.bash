@@ -72,7 +72,7 @@ paru -S --noconfirm neovim git github-cli fzf rust paru paru-debug forgit tmux t
 sudo pacman -S --noconfirm ethtool keychain hwinfo starship bat ripgrep tldr
 
 # --- Fonts & Theming ---
-paru -S --noconfirm ttf-jetbrains-mono-nerd ttf-noto-nerd ttf-ubuntu-nerd ttf-ubuntu-mono-nerd terminus-font
+paru -S --noconfirm ttf-jetbrains-mono-nerd ttf-noto-nerd terminus-font noto-fonts-emoji ttf-font-awesome
 sudo pacman -S --noconfirm gtk-engine-murrine gnome-themes-extra lxappearance sassc
 paru -S --noconfirm tela-icons-theme
 
